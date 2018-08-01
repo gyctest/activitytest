@@ -104,4 +104,27 @@ public class ProcessDefinitiontest {
             }
         }
     }
+
+    /**
+     * 查询最新版流程定义
+     */
+    @Test
+    public void queryLastProcessDefin(){
+        List<ProcessDefinition> list = processEngine.getRepositoryService().createProcessDefinitionQuery().orderByProcessDefinitionVersion().desc().list();
+        ProcessDefinition processDefinition = list.get(0);
+        System.out.println("id:"+processDefinition.getId()+",version="+processDefinition.getVersion());
+
+    }
+
+    /**
+     * 删除流程定义，根据流程定义key
+     */
+    @Test
+    public void deleteProcdefinitionByKey(){
+        List<ProcessDefinition> helloworld = processEngine.getRepositoryService().createProcessDefinitionQuery().processDefinitionKey("helloworld").list();
+        for (ProcessDefinition processDefinition : helloworld) {
+            System.out.println(processDefinition.getId());
+            processEngine.getRepositoryService().deleteDeployment(processDefinition.getDeploymentId(),true);
+        }
+    }
 }

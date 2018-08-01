@@ -42,8 +42,9 @@ public class JunitTest {
     public void startProcess(){
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         ProcessInstance processInstance = processEngine.getRuntimeService().startProcessInstanceByKey("helloworld");
-        System.out.println("pid:"+processInstance.getId());
+        System.out.println("id:"+processInstance.getId());
         System.out.println("activity id:"+processInstance.getActivityId());
+        System.out.println("流程定义id:"+processInstance.getProcessDefinitionId());
         System.out.println(processInstance.getProcessDefinitionKey());
     }
 
