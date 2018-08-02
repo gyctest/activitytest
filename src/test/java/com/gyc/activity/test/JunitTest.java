@@ -28,7 +28,7 @@ public class JunitTest {
     public void deploy() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
         RepositoryService repositoryService = processEngine.getRepositoryService();
-        Deployment deploy = repositoryService.createDeployment()
+        Deployment deploy = repositoryService.createDeployment().name("helloworld测试")
                 .addClasspathResource("diagrams/helloworld.bpmn").addClasspathResource("diagrams/helloworld.png")
                 .deploy();
         System.out.println("id:"+deploy.getId());

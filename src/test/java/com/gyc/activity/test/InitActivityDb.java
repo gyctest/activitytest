@@ -19,9 +19,9 @@ public class InitActivityDb {
     public void init(){
         ProcessEngineConfiguration engineConfiguration = ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration();
         engineConfiguration.setJdbcDriver("com.mysql.jdbc.Driver");
-        engineConfiguration.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/activity?characterEncoding=UTF-8");
+        engineConfiguration.setJdbcUrl("jdbc:mysql://127.0.0.1:3307/activity?characterEncoding=UTF-8");
         engineConfiguration.setJdbcUsername("root");
-        engineConfiguration.setJdbcPassword("acs");
+        engineConfiguration.setJdbcPassword("");
         engineConfiguration.setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
 
         ProcessEngine processEngine = engineConfiguration.buildProcessEngine();

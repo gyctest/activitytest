@@ -11,6 +11,7 @@ import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.repository.ProcessDefinitionQuery;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.util.FileCopyUtils;
 
@@ -18,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.zip.ZipInputStream;
 
@@ -59,7 +61,9 @@ public class ProcessInstancetest {
                 .processDefinitionKey("helloworld")
                 .list();
         for (Task task : taskList) {
-            System.out.println("taskId:"+task.getId()+",taskName:"+task.getName());
+            String format1 = MessageFormat.format("taskId={0},taskName={1},assignee={2},processDefinId={3},processInstancdId={4}.", task.getId(), task.getName(), task.getAssignee(), task.getProcessDefinitionId(), task.getProcessInstanceId());
+            System.out.println(format1);
+
         }
     }
 
@@ -70,7 +74,7 @@ public class ProcessInstancetest {
     public void finishTask(){
         TaskService taskService = processEngine.getTaskService();
 
-        String taskId = "37502";
+        String taskId = "15005";
         taskService.complete(taskId);
         System.out.println("任务完成");
     }

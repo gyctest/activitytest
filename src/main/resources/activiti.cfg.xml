@@ -22,9 +22,9 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
 		<!-- 连接数据的配置 -->
 		<property name="jdbcDriver" value="com.mysql.jdbc.Driver"></property>
-		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/activity?characterEncoding=UTF-8"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3307/activity?characterEncoding=UTF-8"></property>
 		<property name="jdbcUsername" value="root"></property>
-		<property name="jdbcPassword" value="acs"></property>
+		<property name="jdbcPassword" value=""></property>
 		<!-- 没有表创建表 -->
 		<property name="databaseSchemaUpdate" value="true"></property>
 	</bean>
